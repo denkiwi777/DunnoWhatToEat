@@ -13,7 +13,7 @@ public class RecipeService {
 
 	public static ArrayList<Ricetta> getRicetta(){
 		String[] ingredienti = {"cavolo", "pane"};
-		ricette.add(new Ricetta("test1",ingredienti));
+
 		return ricette;
 	}
 
