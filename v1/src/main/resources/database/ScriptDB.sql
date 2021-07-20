@@ -1,6 +1,8 @@
 CREATE TABLE `ingredienti` (
   `ingrediente_id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_ingrediente` varchar(50) NOT NULL,
+   `quantita` int(10),
+  `unita_misura` varchar(24),
   PRIMARY KEY (`ingrediente_id`)) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 
@@ -19,9 +21,7 @@ CREATE TABLE `ricette` (
 CREATE TABLE `ingredienti_ricette` (
   `ingrediente_ricette_id` int(11) NOT NULL AUTO_INCREMENT,
   `ingrediente_id` int(11) NOT NULL,
-  `ricetta_id` int(11) NOT NULL,
-  `quantita` int(10),
-  `unita_misura` varchar(24),
+  `ricetta_id` int(11) NOT NULL, 
   PRIMARY KEY (`ingrediente_ricette_id`),
   KEY `ricetta_id` (`ricetta_id`),
   CONSTRAINT `ingrediente_id_1` 

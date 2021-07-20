@@ -61,6 +61,23 @@ class V1ApplicationTests {
 					if(ingre.equals("farina") || ingre.equals("latte") || ingre.equals("uova") || ingre.equals("zucchero")){
 
 						Ingrediente ingredienteOb = new Ingrediente(ingre);
+						if(ingre.equals("farina")) {
+							ingredienteOb.setUnitaMisura("g");
+							ingredienteOb.setQuantita(200);
+						}
+						if(ingre.equals("uova")) {
+							ingredienteOb.setUnitaMisura("pezzi");
+							ingredienteOb.setQuantita(2);
+						}
+
+						if(ingre.equals("zucchero")) {
+							ingredienteOb.setUnitaMisura("g");
+							ingredienteOb.setQuantita(20);
+						}
+
+
+
+
 						ingredienteRepository.save(ingredienteOb);
 						ingr.add(ingredienteOb);
 						ricettaTemp.setIngrediente_princ(ingredienteOb.getId().intValue());

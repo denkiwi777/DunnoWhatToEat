@@ -15,6 +15,28 @@ public class Ingrediente {
     @Column(name="nome_ingrediente")
     private String nome;
 
+    @Column
+    private int quantita;
+
+    public void setQuantita(int quantita) {
+        this.quantita = quantita;
+    }
+
+    public void setUnitaMisura(String unita_misura) {
+        this.unita_misura = unita_misura;
+    }
+
+    public int getQuantita() {
+        return quantita;
+    }
+
+    public String getUnitaMisura() {
+        return unita_misura;
+    }
+
+    @Column
+    private String unita_misura;
+
     @ManyToMany(mappedBy = "ingredienti")
     Set<Ricetta> ricetta = new HashSet<>();
 
