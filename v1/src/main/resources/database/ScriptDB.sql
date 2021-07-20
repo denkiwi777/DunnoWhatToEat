@@ -32,6 +32,5 @@ CREATE TABLE `ingredienti_ricette` (
 
 ALTER TABLE ricette ADD CONSTRAINT `ricette_1`
   FOREIGN KEY(`ingrediente_princ`) REFERENCES 
-  `ingredienti_ricette` (`ingrediente_ricette_id`)
+  `ingredienti` (`ingrediente_id`);
   
- 
