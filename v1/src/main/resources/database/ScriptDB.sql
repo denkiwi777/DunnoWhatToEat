@@ -1,7 +1,7 @@
 CREATE TABLE `ingredienti` (
   `ingrediente_id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_ingrediente` varchar(50) NOT NULL,
-   `quantita` int(10),
+   `quantita` double,
   `unita_misura` varchar(24),
   PRIMARY KEY (`ingrediente_id`)) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
@@ -33,4 +33,3 @@ CREATE TABLE `ingredienti_ricette` (
 ALTER TABLE ricette ADD CONSTRAINT `ricette_1`
   FOREIGN KEY(`ingrediente_princ`) REFERENCES 
   `ingredienti` (`ingrediente_id`);
-  

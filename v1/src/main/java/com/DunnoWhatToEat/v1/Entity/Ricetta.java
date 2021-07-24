@@ -19,7 +19,7 @@ public class Ricetta {
 	public int tipo_piatto;
 
 	@Column
-	public int ingrediente_princ;
+	public Long ingrediente_princ;
 
 	@Column
 	public int nr_persone;
@@ -42,7 +42,7 @@ public class Ricetta {
 	public Ricetta() {
 	}
 
-	public Ricetta(Long ricetta_id, String titolo, int tipo_piatto, int ingrediente_princ, int nr_persone, String note, String preparazione, Set<Ingrediente> ingredienti) {
+	public Ricetta(Long ricetta_id, String titolo, int tipo_piatto, Long ingrediente_princ, int nr_persone, String note, String preparazione, Set<Ingrediente> ingredienti) {
 		this.ricetta_id = ricetta_id;
 		this.titolo = titolo;
 		this.tipo_piatto = tipo_piatto;
@@ -65,7 +65,7 @@ public class Ricetta {
 		this.tipo_piatto = tipo_piatto;
 	}
 
-	public void setIngrediente_princ(int ingrediente_princ) {
+	public void setIngrediente_princ(Long ingrediente_princ) {
 		this.ingrediente_princ = ingrediente_princ;
 	}
 
@@ -97,7 +97,7 @@ public class Ricetta {
 		return tipo_piatto;
 	}
 
-	public int getIngrediente_princ() {
+	public Long getIngrediente_princ() {
 		return ingrediente_princ;
 	}
 

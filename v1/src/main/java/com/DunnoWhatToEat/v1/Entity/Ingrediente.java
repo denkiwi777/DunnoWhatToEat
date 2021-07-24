@@ -16,9 +16,9 @@ public class Ingrediente {
     private String nome;
 
     @Column
-    private int quantita;
+    private double quantita;
 
-    public void setQuantita(int quantita) {
+    public void setQuantita(double quantita) {
         this.quantita = quantita;
     }
 
@@ -26,7 +26,7 @@ public class Ingrediente {
         this.unita_misura = unita_misura;
     }
 
-    public int getQuantita() {
+    public double getQuantita() {
         return quantita;
     }
 

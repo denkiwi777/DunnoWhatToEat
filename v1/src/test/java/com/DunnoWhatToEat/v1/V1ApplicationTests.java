@@ -48,7 +48,7 @@ class V1ApplicationTests {
 						Ingrediente ingredienteOb = new Ingrediente(ingre);
 						ingredienteRepository.save(ingredienteOb);
 						ingr.add(ingredienteOb);
-						ricettaTemp.setIngrediente_princ(ingredienteOb.getId().intValue());					}
+						ricettaTemp.setIngrediente_princ(ingredienteOb.getId());					}
 				}
 			assertEquals(0, ricettaTemp.getIngredienti().size());
 			ricettaTemp.setIngredienti(ingr);
@@ -80,7 +80,7 @@ class V1ApplicationTests {
 
 						ingredienteRepository.save(ingredienteOb);
 						ingr.add(ingredienteOb);
-						ricettaTemp.setIngrediente_princ(ingredienteOb.getId().intValue());
+						ricettaTemp.setIngrediente_princ(ingredienteOb.getId());
 
 					}
 				}
