@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.io.IOException;
 
@@ -26,9 +28,14 @@ public class V1Application {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(V1Application.class, args);
-
-		RecipeExtractor rec = new RecipeExtractor();
-		rec.run();
+	}
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/api/").allowedOrigins("http://localhost:8080");
+			}
+		};
 	}
 
 

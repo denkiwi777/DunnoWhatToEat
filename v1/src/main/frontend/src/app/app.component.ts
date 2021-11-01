@@ -21,7 +21,7 @@ export class AppComponent implements OnDestroy {
     email: new FormControl('',  Validators.required)
   });
 
-  users: any[] = [];
+  ricette: any[] = [];
   recipeCount = 0;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -35,10 +35,10 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  getAllUsers() {
-    this.appService.getRecipe().pipe(takeUntil(this.destroy$)).subscribe((users: any) => {
-		this.recipeCount = users.length;
-        this.users = users;
+  getRicette() {
+    this.appService.getRecipe().pipe(takeUntil(this.destroy$)).subscribe((ricette: any) => {
+		this.recipeCount = ricette.length;
+        this.ricette = ricette;
     });
   }
 
@@ -48,6 +48,6 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnInit() {
-	this. ();
+	this.getRicette();
   }
 }

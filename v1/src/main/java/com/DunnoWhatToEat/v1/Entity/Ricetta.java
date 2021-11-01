@@ -1,6 +1,8 @@
 package com.DunnoWhatToEat.v1.Entity;
 
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +13,20 @@ public class Ricetta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ricetta_id;
+
+	@Override
+	public String toString() {
+		return "Ricetta{" +
+				"ricetta_id=" + ricetta_id +
+				", titolo='" + titolo + '\'' +
+				", tipo_piatto=" + tipo_piatto +
+				", ingrediente_princ=" + ingrediente_princ +
+				", nr_persone=" + nr_persone +
+				", note='" + note + '\'' +
+				", preparazione='" + preparazione + '\'' +
+				", ingredienti=" + ingredienti +
+				'}';
+	}
 
 	@Column
 	public String titolo;
@@ -28,6 +44,7 @@ public class Ricetta {
 	public String note;
 
 	@Column
+	@Type(type = "text")
 	public String preparazione;
 
 
@@ -38,6 +55,8 @@ public class Ricetta {
 			inverseJoinColumns = {@JoinColumn(name="ingrediente_id")}
 	)
 	private Set<Ingrediente> ingredienti = new HashSet<>();
+
+
 
 	public Ricetta() {
 	}
@@ -52,6 +71,7 @@ public class Ricetta {
 		this.preparazione = preparazione;
 		this.ingredienti = ingredienti;
 	}
+
 
 	public void setRicetta_id(Long ricetta_id) {
 		this.ricetta_id = ricetta_id;

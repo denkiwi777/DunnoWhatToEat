@@ -1,6 +1,6 @@
 CREATE TABLE `ingredienti` (
   `ingrediente_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_ingrediente` varchar(50) NOT NULL,
+  `nome_ingrediente` varchar(120) NOT NULL,
    `quantita` double,
   `unita_misura` varchar(24),
   PRIMARY KEY (`ingrediente_id`)) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
@@ -8,7 +8,7 @@ CREATE TABLE `ingredienti` (
 
 CREATE TABLE `ricette` (
   `ricetta_id` int(11) NOT NULL AUTO_INCREMENT,
-  `titolo` varchar(50)  NOT NULL,
+  `titolo` varchar NOT NULL,
   `tipo_piatto` int(11),
   `ingrediente_princ` int(11),
   `nr_persone` int(11),
@@ -33,3 +33,9 @@ CREATE TABLE `ingredienti_ricette` (
 ALTER TABLE ricette ADD CONSTRAINT `ricette_1`
   FOREIGN KEY(`ingrediente_princ`) REFERENCES 
   `ingredienti` (`ingrediente_id`);
+  
+ alter table ricette drop constraint `ricette_1`;
+ drop table `ricette`;
+ drop table `ingredienti_ricette` 
+ 
+ drop table ingredienti ;

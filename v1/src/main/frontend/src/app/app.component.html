@@ -1,6 +1,48 @@
-<div>
-  <div *ngFor= "let ricetta of users">
-    <p>{{ricetta.descrizione}}</p>
-    <p>{{ricetta.ingredienti}}</p>
+<div style="padding: 5px">
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let response of ricette" class="col-4" style="padding: 7px">
+        <div class="card">
+          <h5 class="card-header">{{ response.ricetta.titolo }}</h5>
+          <div class="card-body">
+            <h5 class="card-title">Ingredienti</h5>
+            <p *ngIf="response.ingrediente!==null">
+              Ingrediente Principale:{{
+                response.ingrediente.nome
+              }}
+              {{ response.quantita }}
+              {{ response.ingrediente.unitaMisura }}
+            </p>
+
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item"
+                *ngFor="let ingrediente of response.ricetta.ingredienti"
+              >
+                {{ ingrediente.nome }} - {{ ingrediente.quantita }}
+                {{ ingrediente.unitaMisura }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Preparazione</h5>
+            <p
+              *ngIf="
+                response.ricetta.note !== '' && response.ricetta.note !== null
+              "
+              class="card-text"
+              class="card-text"
+            >
+             Note:  {{ response.ricetta.note }}
+            </p>
+            <p>{{ response.ricetta.preparazione }}</p>
+
+            <p>{{ response.ricetta.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
