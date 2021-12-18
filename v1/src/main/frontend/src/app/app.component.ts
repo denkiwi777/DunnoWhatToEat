@@ -41,7 +41,10 @@ export class AppComponent implements OnDestroy {
         this.ricette = ricette;
     });
   }
+search(ingredienti:string){
+  console.log(ingredienti)
 
+}
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
