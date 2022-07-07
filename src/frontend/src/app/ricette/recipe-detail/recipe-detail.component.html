@@ -1,0 +1,48 @@
+<div>
+  <div class="container-fluid">
+    <ngx-masonry [options]="masonryOptions">
+
+      <div ngxMasonryItem style="height:fit-content ;" *ngFor="let item of response; let i = index  "
+        class="col-sm-4 col-md-3 py-3">
+        <div style="margin:5px ;" class="card border-primary">
+
+          <div class="card-body">
+            <span class="card-number card-circle subtle">{{item.ricetta.id}}</span>
+            <span class="card-author subtle">{{item.ricetta.titolo}}</span>
+            <h2 class="card-title">{{item.ricetta.note}}</h2>
+            <div>
+              <span class="card-description subtle">{{item.ricetta.preparazione}}</span>
+
+            </div>
+            <div class="card-read">Read</div>
+            <span class="card-tag card-circle subtle">C</span>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+
+              <accordion  [closeOthers]="true" >
+                <accordion-group (click)="reloadItems()" heading="Ingredienti">
+                    test
+                  <ul >
+
+                    <li *ngFor="let ingrediente of item.ricetta.ingredienti">
+                      {{ ingrediente.nome }} - {{ ingrediente.quantita }}
+                      {{ ingrediente.unitaMisura }}
+                    </li>
+                  </ul>
+                </accordion-group>
+                ...
+              </accordion>
+            </div>
+
+          </div>
+          <div class="card-shadow"></div>
+        </div>
+
+      </div>
+
+    </ngx-masonry>
+
+
+  </div>
+</div>
