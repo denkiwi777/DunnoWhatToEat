@@ -1,12 +1,25 @@
 package com.dunnoWhatToEat.snapshot.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RicettaResponse {
     private Ricetta ricetta;
-    private Ingrediente ingrediente;
+    private Ingrediente ingredientePrincipale;
+
+    public List<IngredienteResponse> getIngredientiResponse() {
+        return ingredienti;
+    }
+
+    public void setIngredientiResponse(List<IngredienteResponse> ingredientiResponse) {
+        this.ingredienti = ingredientiResponse;
+    }
+
+    private List<IngredienteResponse> ingredienti = new ArrayList<>();
 
     public RicettaResponse(Ricetta ricetta, Ingrediente ingrediente) {
         this.ricetta = ricetta;
-        this.ingrediente = ingrediente;
+        this.ingredientePrincipale = ingrediente;
     }
 
     public RicettaResponse() {
@@ -20,11 +33,14 @@ public class RicettaResponse {
         this.ricetta = ricetta;
     }
 
-    public Ingrediente getIngrediente() {
-        return ingrediente;
+    public Ingrediente getIngredientePrincipale() {
+        return ingredientePrincipale;
     }
 
-    public void setIngrediente(Ingrediente ingrediente) {
-        this.ingrediente = ingrediente;
+    public void setIngredientePrincipale(Ingrediente ingredientePrincipale) {
+        this.ingredientePrincipale = ingredientePrincipale;
+    }
+    public void addIngrediente(IngredienteResponse ingrediente){
+        this.ingredienti.add(ingrediente);
     }
 }

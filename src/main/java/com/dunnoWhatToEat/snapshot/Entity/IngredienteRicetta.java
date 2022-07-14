@@ -1,7 +1,10 @@
 package com.dunnoWhatToEat.snapshot.Entity;
 
+
 import javax.persistence.*;
-import java.util.HashSet;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -11,16 +14,23 @@ public class IngredienteRicetta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ingredienti_ricette_id")
     private Long ingredienti_ricette_id;
+
     @Column
     private double quantita;
 
 
     @Column
     private String unita_misura;
-    @Column
-    private String ricetta_id;
 
+    @ManyToOne
+    @JoinColumn(name ="ricetta_id")
+    private Ricetta ricetta;
+
+    @ManyToOne
+    @JoinColumn(name ="ingrediente_id")
+    private Ingrediente ingrediente;
 
 
     public Long getIngredienti_ricette_id() {
@@ -31,26 +41,35 @@ public class IngredienteRicetta {
         this.ingredienti_ricette_id = ingredienti_ricette_id;
     }
 
-    public String getUnita_misura() {
+    public double getQuantita() {
+        return quantita;
+    }
+
+    public void setQuantita(double quantita) {
+        this.quantita = quantita;
+    }
+
+    public String getUnitaMisura() {
         return unita_misura;
     }
 
-    public void setUnita_misura(String unita_misura) {
+    public void setUnitaMisura(String unita_misura) {
         this.unita_misura = unita_misura;
     }
 
+    public Ricetta getRicetta() {
+        return ricetta;
+    }
+
+    public void setRicetta(Ricetta ricetta) {
+        this.ricetta = ricetta;
+    }
+
     public Ingrediente getIngrediente() {
-        return ingrediente_id;
+        return ingrediente;
     }
 
     public void setIngrediente(Ingrediente ingrediente) {
-        this.ingrediente_id = ingrediente;
+        this.ingrediente = ingrediente;
     }
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="ingrediente_id")
-
-    private Ingrediente ingrediente_id = new Ingrediente();
-
-
 }

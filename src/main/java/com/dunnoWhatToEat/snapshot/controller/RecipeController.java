@@ -46,4 +46,16 @@ public class RecipeController {
 		return ResponseEntity.ok(resource);
 	}
 
+	@PostMapping(path = "searchLike")
+	public ResponseEntity<?> searchRecipesLike(@RequestBody String[] ingredienti) {
+		System.out.println("put request");
+		List<RicettaResponse> resource = recipeService.searchLike(ingredienti);
+		return ResponseEntity.ok(resource);
+	}
+	@PostMapping(path = "searchFew")
+	public ResponseEntity<?> searchRecipesFew(@RequestBody String[] ingredienti) {
+		System.out.println("put request");
+		List<RicettaResponse> resource = recipeService.searchFewIngredients(ingredienti);
+		return ResponseEntity.ok(resource);
+	}
 }

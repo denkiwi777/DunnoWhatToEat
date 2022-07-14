@@ -5,6 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MainAppService {
+  searchRecipesLike(ingredientsKeywords: string[]) {
+    return this.http.post(this.rootURL + '/searchLike', ingredientsKeywords);
+  }
+  searchRecipesFewIngr(ingredientsKeywords: string[]) {
+    return this.http.post(this.rootURL + '/searchFew', ingredientsKeywords);
+  }
 
   constructor(private http: HttpClient) { }
   rootURL = 'http://localhost:8080/api';

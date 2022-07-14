@@ -8,34 +8,35 @@
 
           <div class="card-body">
             <span class="card-number card-circle subtle">{{item.ricetta.id}}</span>
-            <span class="card-author subtle">{{item.ricetta.titolo}}</span>
-            <h2 class="card-title">{{item.ricetta.note}}</h2>
+            <span class="card-title subtle"><h2>{{item.ricetta.titolo}}</h2></span>
+            <span style="margin-bottom:10px ;" *ngIf="item.ricetta.note!==' -'" class="card subtle">{{item.ricetta.note}}</span>
+            <div class="row">
+              <div class="col-xs-12">
+
+                <accordion  [closeOthers]="true" >
+                  <accordion-group (click)="reloadItems()" heading="Ingredienti">
+                    <ul >
+
+                      <li *ngFor="let ingrediente of item.ingredientiResponse">
+                        {{ ingrediente.nome }} - {{ ingrediente.quantita }}
+                        {{ ingrediente.unitaMisura }}
+                      </li>
+                    </ul>
+                  </accordion-group>
+
+                </accordion>
+              </div>
+
+            </div>
             <div>
+              <h5>Preparazione:</h5>
               <span class="card-description subtle">{{item.ricetta.preparazione}}</span>
 
             </div>
-            <div class="card-read">Read</div>
-            <span class="card-tag card-circle subtle">C</span>
+
+            <span class="card-tag card-circle subtle"></span>
           </div>
-          <div class="row">
-            <div class="col-xs-12">
 
-              <accordion  [closeOthers]="true" >
-                <accordion-group (click)="reloadItems()" heading="Ingredienti">
-                    test
-                  <ul >
-
-                    <li *ngFor="let ingrediente of item.ricetta.ingredienti">
-                      {{ ingrediente.nome }} - {{ ingrediente.quantita }}
-                      {{ ingrediente.unitaMisura }}
-                    </li>
-                  </ul>
-                </accordion-group>
-                ...
-              </accordion>
-            </div>
-
-          </div>
           <div class="card-shadow"></div>
         </div>
 

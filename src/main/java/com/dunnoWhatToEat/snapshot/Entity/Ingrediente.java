@@ -1,10 +1,14 @@
 package com.dunnoWhatToEat.snapshot.Entity;
 
+
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-@Entity
+ @Entity
 @Table(name="ingredienti")
 public class Ingrediente {
     @Id
@@ -12,7 +16,7 @@ public class Ingrediente {
     @Column(name="ingrediente_id")
     private Long id;
 
-    @Column(name="nome_ingrediente")
+    @Column(name="nome_ingrediente", unique = true)
     private String nome;
 
 
@@ -46,4 +50,5 @@ public class Ingrediente {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }

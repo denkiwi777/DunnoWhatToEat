@@ -46,4 +46,20 @@ export class SearchBarComponent implements OnInit {
 
     });
   }
+  searchFewIngredients(){
+    const subs = this.service.searchRecipesFewIngr(this.ingredientsKeywords);
+    subs.subscribe((data:any )=>{
+      console.log(data);
+      this.searchEventEmitter.emit(data)
+
+    });
+  }
+  searchLike(){
+    const subs = this.service.searchRecipesLike(this.ingredientsKeywords);
+    subs.subscribe((data:any )=>{
+      console.log(data);
+      this.searchEventEmitter.emit(data)
+
+    });
+  }
 }
